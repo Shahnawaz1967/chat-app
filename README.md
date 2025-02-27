@@ -33,6 +33,23 @@ chat with ankit
 - **Database:** MongoDB
 - **Authentication:** JWT, bcryptjs
 - **Real-Time Communication:** Socket.IO
+- ## 🌟 .env:
+
+   PORT=3000
+  
+ MONGO_URI=mongodb+srv://shahnawaz11967:9p6p4uYPwHZWVVQi@cluster0.wscv1.mongodb.net/chat-app?retryWrites=true&w=majority&appName=Cluster0
+
+ JWT_SECRET_KEY=your_secret_key_here
+
+ CLOUDINARY_CLOUD_NAME=ds8061ark
+
+ CLOUDINARY_API_KEY=655976667698528
+
+ CLOUDINARY_API_SECRET=r9JiTONuBXkjQ43BPu1zCJJTb6s
+
+ NODE_ENV=development
+
+
 
 ## Installation 🛠️
 

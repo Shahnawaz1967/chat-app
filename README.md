@@ -58,7 +58,7 @@ Clone the repository :
 ```bash
 https://github.com/Shahnawaz1967/chat-app.git
 ```
-
+backend deployemnt link
 ```bash
 https://chat-app-qwn5.onrender.com
 ```

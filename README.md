@@ -59,6 +59,11 @@ Clone the repository :
 https://github.com/Shahnawaz1967/chat-app.git
 ```
 
+```bash
+https://chat-app-qwn5.onrender.com
+```
+
+
 Install dependencies :
 ```bash
 npm install

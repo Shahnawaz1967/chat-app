@@ -58,7 +58,7 @@ const Login = () => {
 
             <div>
               <label className='label p-2 font-semibold'>
-                <span className=''>Username</span>
+                <span className=''>Email</span>
               </label>
               <input
                 className='w-full input input-bordered h-10 font-semibold'
@@ -66,7 +66,7 @@ const Login = () => {
                 value={user.username}
                 onChange={e=>setUser({...user,username:e.target.value})}
                 autoComplete='new-username'
-                placeholder='Username' />
+                placeholder='Email' />
             </div>
             <div>
               <label className='label p-2 font-semibold'>

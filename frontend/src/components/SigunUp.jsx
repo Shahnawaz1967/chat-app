@@ -55,7 +55,7 @@ const SignUp = () => {
                             className='w-full input input-bordered h-10 font-semibold'
                             value={user.fullName}
                             type="text"
-                            placeholder='Fullname' />
+                            placeholder='Name' />
                     </div>
 
                     <div>
@@ -65,7 +65,7 @@ const SignUp = () => {
                             className='w-full input input-bordered h-10 font-semibold'
                             value={user.username}
                             type="text"
-                            placeholder='Username'
+                            placeholder='Email'
                             autoComplete='new-username' />
                     </div>
 

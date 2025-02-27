@@ -114,15 +114,7 @@ const SignUp = () => {
                         </button>
                     </div>
 
-                    <div className='flex justify-center mt-4'>
-                        <button
-                            type='button'
-                            onClick={() => navigate('/login')}
-                            className='btn btn-outline border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white'
-                        >
-                            Login
-                        </button>
-                    </div>
+                    
 
                 </form>
 

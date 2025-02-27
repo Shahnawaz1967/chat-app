@@ -13,12 +13,18 @@ const dir=path.resolve() //get path for root directory
 dotenv.config({})
 const PORT= process.env.PORT || 3000
 
+// const corsOptions = {
+//     // origin: ['http://localhost:3000', 'http://localhost:5173' , 'http://localhost:5174'],
+//     origin:true,
+//     credentials: true, 
+
+// };
 const corsOptions = {
-    // origin: ['http://localhost:3000', 'http://localhost:5173' , 'http://localhost:5174'],
-    origin:true,
+    origin: process.env.MODE === 'production'
+        ? '*'
+        : 'http://localhost:5173',
     credentials: true, 
 };
-
 
 app.use(cors(corsOptions));
 
@@ -26,12 +32,16 @@ app.use(express.json({ limit:'10mb' }))
 app.use(cookiePareser())
 
 app.use("/api/v1",mainRoutes)
-if(process.env.MODE=='production'){
-    app.use(express.static(path.join(dir,"/frontend/dist")))
+if (process.env.MODE === 'production') {
+    // Serve static files from the frontend build folder
+    app.use(express.static(path.join(__dirname, '../frontend/dist')));
+
+    // Handle all other routes by serving the index.html file
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+    });
 }
-app.get("*",(req,res)=>{
-    res.sendFile(path.join(dir,"frontend","dist","index.html"))
-})
+
 
 server.listen(PORT,()=>{
     connectDB()

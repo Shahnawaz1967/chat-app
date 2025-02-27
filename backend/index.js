@@ -13,18 +13,13 @@ const dir=path.resolve() //get path for root directory
 dotenv.config({})
 const PORT= process.env.PORT || 3000
 
-// const corsOptions = {
-//     // origin: ['http://localhost:3000', 'http://localhost:5173' , 'http://localhost:5174'],
-//     origin:true,
-//     credentials: true, 
-
-// };
 const corsOptions = {
-    origin: process.env.MODE === 'production'
-        ? '*'
-        : 'http://localhost:5173',
+    // origin: ['http://localhost:3000', 'http://localhost:5173' , 'http://localhost:5174'],
+    origin:true,
     credentials: true, 
+
 };
+
 
 app.use(cors(corsOptions));
 

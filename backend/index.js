@@ -1,41 +1,39 @@
-const express = require('express');
-const { server, app } = require('./socket/socket');
-const cors = require('cors');
-const mainRoutes = require('./routes/index.js');
-const dotenv = require('dotenv');
-const cookieParser = require("cookie-parser"); // Fixed typo
-const connectDB = require('./config/database.js');
-const path = require("path");
 
-dotenv.config();
-const PORT = process.env.PORT || 3000;
+const express=require('express')
+// const app=express()
+const {server ,app}=require('./socket/socket')
+const cors=require('cors')
 
-// CORS Configuration
+const mainRoutes= require('./routes/index.js')
+const dotenv=require('dotenv')
+const cookiePareser=require("cookie-parser")
+const connectDB=require('./config/database.js')
+const path=require("path")
+
+const dir=path.resolve() //get path for root directory
+dotenv.config({})
+const PORT= process.env.PORT || 3000
+
 const corsOptions = {
-    origin: process.env.MODE === 'production' 
-        ? 'https://your-frontend-deployed-url.com' 
-        : ['http://localhost:3000', 'http://localhost:5173', 'http://localhost:5174'],
-    credentials: true,
+    // origin: ['http://localhost:3000', 'http://localhost:5173' , 'http://localhost:5174'],
+    origin:true,
+    credentials: true, 
 };
 
 app.use(cors(corsOptions));
-app.use(express.json({ limit: '10mb' }));
-app.use(cookieParser());
-app.use("/api/v1", mainRoutes);
 
-// Serve Frontend in Production
-if (process.env.MODE === 'production') {
-    const frontendPath = path.join(__dirname, '../frontend', 'dist');
-    app.use(express.static(frontendPath));
+app.use(express.json({ limit:'10mb' }))
+app.use(cookiePareser())
 
-    app.get('*', (req, res) => {
-        res.sendFile(path.join(frontendPath, 'index.html'));
-    });
+app.use("/api/v1",mainRoutes)
+if(process.env.MODE=='production'){
+    app.use(express.static(path.join(dir,"/frontend/dist")))
 }
+app.get("*",(req,res)=>{
+    res.sendFile(path.join(dir,"frontend","dist","index.html"))
+})
 
-
-// Start Server
-server.listen(PORT, () => {
-    connectDB();
-    console.log(`Server is running at ${PORT}`);
-});
+server.listen(PORT,()=>{
+    connectDB()
+    console.log(`Server is running at ${PORT}`)
+})

@@ -1,12 +1,12 @@
 {
-  "name": "backend",
+  "name": "chat-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "Full stack chat app",
   "main": "backend/index.js",
   "scripts": {
     "dev": "nodemon backend/index.js",
     "start": "node backend/index.js",
-    "build":"npm install && npm install --prefix frontend && npm run build --prefix frontend"
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "shahnawaz",
   "license": "ISC",
@@ -19,7 +19,9 @@
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.7.1",
-    "nodemon": "^3.1.7",
     "socket.io": "^4.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
   }
 }

@@ -25,13 +25,14 @@ app.use("/api/v1", mainRoutes);
 
 // Serve Frontend in Production
 if (process.env.MODE === 'production') {
-    const frontendPath = path.join(__dirname, '../frontend/dist');
+    const frontendPath = path.join(__dirname, 'frontend', 'dist');
     app.use(express.static(frontendPath));
 
     app.get('*', (req, res) => {
         res.sendFile(path.join(frontendPath, 'index.html'));
     });
 }
+
 
 // Start Server
 server.listen(PORT, () => {
